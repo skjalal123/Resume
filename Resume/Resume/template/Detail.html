@@ -1,0 +1,154 @@
+{%extends 'main.html'%}
+{%block body%}
+{%for i in userData%}
+<h1>{{i.first_name}} {{i.last_name}}</h1>
+<p>Date of Birth : {{i.DOB}}</p>
+Email : {{i.email}} | Mobile : {{i.mobile}}
+<p> Address : {{i.address}}, {{i.city}} - {{i.pin}}</p>
+<hr>
+<table style="width:100%;background-color: #ccc;color: black;">
+    <tr>
+        <td>Career Objective:</td>
+    </tr>
+</table>
+{%for i in careerObjective%}
+<p>{{i.objective}}</p>
+{%endfor%}
+<hr>
+<table style="width:100%;background-color: #ccc;color: black;">
+    <tr>
+        <td>Academic Qualification</td>
+    </tr>
+</table>
+<br>
+<table style="width:100%">
+    <tr>
+        <th>Degree</th>
+        <th>Year</th>
+        <th>College</th>
+        <th>Board</th>
+        <th>Percentage</th>
+    </tr>
+    {%for i in academic%}
+    <tr>
+        <td>{{i.degree}}</td>
+        <td>{{i.year}}</td>
+        <td>{{i.college}}</td>
+        <td>{{i.board}}</td>
+        <td>{{i.percentage}}</td>
+    </tr>
+    {%endfor%}
+</table>
+<br>
+<table style="width:100%;background-color: #ccc;color: black;">
+    <tr>
+        <td>Extra Curriculum:</td>
+    </tr>
+</table>
+<br>
+<table style="width:100%; text-align: center;">
+    <tr>
+        <th>Certificate</th>
+        <th>Offered By</th>
+        <th>Year</th>
+    </tr>
+{%for i in extraCurriculam%}
+<tr>
+    <td>{{i.certificate}}</td>
+    <td>{{i.offered_By}}</td>
+    <td>{{i.year}}</td>
+</tr>
+{%endfor%}
+</table>
+<br>
+<table style="width:100%;background-color: #ccc;color: black;">
+    <tr>
+        <td>Experience</td>
+    </tr>
+</table>
+<br>
+<table style="width:100%; text-align: center;">
+    <tr>
+        <th>company_name</th>
+        <th>role</th>
+        <th>starting_date</th>
+        <th>Ending Date</th>
+        <th>Description</th>
+    </tr>
+{%for i in experience%}
+<tr>
+<td>{{i.company_name}}</td>
+<td>{{i.role}}</td>
+<td>{{i.starting_date}}</td>
+{%if i.currently_Working%}
+<td>Currently Working</td>
+{%else%}
+<td>{{i.end_date}}</td>
+{%endif%}
+<td>{{i.Description}}</td>
+</tr>
+{%endfor%}
+
+</table>
+
+<br>
+<table style="width:100%;background-color: #ccc;color: black;">
+    <tr>
+        <td>IT-Skill</td>
+    </tr>
+</table>
+<br>
+
+<ul>
+{%for i in skill%}
+<li>{{i.languages}} {{i.Version}}</li>
+{%endfor%}
+</ul>
+<br>
+<table style="width:100%;background-color: #ccc;color: black;">
+    <tr>
+        <td>Interest</td>
+    </tr>
+</table>
+<br>
+<ul>
+{%for i in interested_area%}
+<li>{{i.Interested}}</li>
+{%endfor%}
+</ul>
+<br>
+<table style="width:100%;background-color: #ccc;color: black;">
+    <tr>
+        <td>Project:</td>
+    </tr>
+</table>
+<br>
+<table style="width:100%; text-align: center;">
+    <tr>
+        <th>Project Name</th>
+        <th>gitUrl</th>
+        <th>Description</th>
+    </tr>
+    {%for i in project%}
+    <tr>
+        <td>{{i.project_name}}</td>
+        <td><a href="{{i.gitUrl}}" target="_blank">{{i.gitUrl}}</a></td>
+        <td>{{i.Description}}</td>
+    </tr>
+    {%endfor%}
+</table>
+<br>
+<table style="width:100%;background-color: #ccc;color: black;">
+    <tr>
+        <td>Hobby</td>
+    </tr>
+</table>
+<br>
+<ul>
+    {%for i in hobby%}
+<li>{{i.Interested}}</li>
+{%endfor%}
+</ul>
+place: {{i.city}}
+{%endfor%}
+{%endblock%}
